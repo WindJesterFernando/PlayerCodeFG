@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{06A50EFB-B897-4A00-BE06-30E521F3714D}|Default">
+  <MonoDevelop.Ide.ItemProperties.PlayerCodeFG PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalGambitInterface.cs">
+    <Files>
+      <File FileName="PartyAI.cs" Line="25" Column="33" />
+      <File FileName="Program.cs" />
+      <File FileName="FinalGambitInterface.cs" Line="969" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
