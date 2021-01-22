@@ -15,11 +15,6 @@ namespace Final_Gambit_Player_Code
 
     }
 
-    static public class TransferPath
-    {
-        public const string transferPath = "/Users/fernandorestituto/Desktop/FGFileExchange2/";
-    }
-
 }
 
 
