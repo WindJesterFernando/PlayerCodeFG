@@ -1,23 +1,12 @@
 ﻿<Properties StartupConfiguration="{06A50EFB-B897-4A00-BE06-30E521F3714D}|Default">
   <MonoDevelop.Ide.ItemProperties.PlayerCodeFG PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FileExchangePath.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FinalGambitInterface.cs">
     <Files>
-      <File FileName="PartyAI.cs" Line="1" Column="1" />
-      <File FileName="Program.cs" Line="17" Column="1" />
-      <File FileName="FinalGambitInterface.cs" Line="2168" Column="35" />
-      <File FileName="FileExchangePath.cs" Line="1" Column="1" />
+      <File FileName="PartyAI.cs" Line="10" Column="1" />
+      <File FileName="Program.cs" />
+      <File FileName="FinalGambitInterface.cs" Line="278" Column="27" />
+      <File FileName="FileExchangePath.cs" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="PlayerCodeFG" expanded="True">
-            <Node name="PlayerCodeFG" expanded="True">
-              <Node name="FileExchangePath.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

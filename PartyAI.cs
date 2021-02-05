@@ -11,6 +11,7 @@ namespace Final_Gambit_Player_Code
         static public void ProcessAI()
         {
 
+
             PartyCharacter target = null;
 
             foreach (PartyCharacter pc in FinalGambit.BattleState.foeCharacters)
@@ -25,6 +26,29 @@ namespace Final_Gambit_Player_Code
             }
 
             FinalGambit.PerformBattleAction(FinalGambit.BattleActionID.Attack, target);
+
+
+
+            //Console.WriteLine("Char with init: " + FinalGambit.characterWithInitiative);
+
+
+            //foreach (PartyCharacter pc in FinalGambit.BattleState.partyCharacters)
+            //{
+            //    foreach(StatusEffect se in pc.statusEffects)
+            //    {
+            //        if(se.id == FinalGambit.StatusEffectID.Poison)
+            //        {
+            //            //We have found a character that is poisoned, do something here...
+            //        }
+            //    }
+            //}
+
+            //if(FinalGambit.characterWithInitiative.classID == FinalGambit.CharacterClassID.Fighter)
+            //{
+            //    //The character with initiative is a figher, do something here...
+            //}
+
+
 
         }
     }
