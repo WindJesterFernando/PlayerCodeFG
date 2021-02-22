@@ -1142,20 +1142,32 @@ namespace Final_Gambit_Player_Code
         {
             Console.WriteLine("Exchange Folder Path: " + FileExchangePath.exchangePath);
 
-            string[] paths = { FileExchangePath.exchangePath, "Action.txt"};
-            action = Path.Combine(paths);
+            //string[] paths = { FileExchangePath.exchangePath, "Action.txt"};
+            //action = Path.Combine(paths);
 
-            paths = new string[] { FileExchangePath.exchangePath, "BattleReport.txt" };
-            battleReport = Path.Combine(paths);
+            //paths = new string[] { FileExchangePath.exchangePath, "BattleReport.txt" };
+            //battleReport = Path.Combine(paths);
 
-            paths = new string[] { FileExchangePath.exchangePath, "Flag.txt" };
-            flag = Path.Combine(paths);
+            //paths = new string[] { FileExchangePath.exchangePath, "Flag.txt" };
+            //flag = Path.Combine(paths);
 
-            paths = new string[] { FileExchangePath.exchangePath, "Error.txt" };
-            error = Path.Combine(paths);
+            //paths = new string[] { FileExchangePath.exchangePath, "Error.txt" };
+            //error = Path.Combine(paths);
 
-            paths = new string[] { FileExchangePath.exchangePath, "BattleState.txt" };
-            battleState = Path.Combine(paths);
+            //paths = new string[] { FileExchangePath.exchangePath, "BattleState.txt" };
+            //battleState = Path.Combine(paths);
+
+            action = FileExchangePath.exchangePath + Path.DirectorySeparatorChar + "Action.txt";
+
+            battleReport = FileExchangePath.exchangePath + Path.DirectorySeparatorChar + "BattleReport.txt";
+            flag = FileExchangePath.exchangePath + Path.DirectorySeparatorChar + "Flag.txt";
+            error = FileExchangePath.exchangePath + Path.DirectorySeparatorChar + "Error.txt";
+            battleState = FileExchangePath.exchangePath + Path.DirectorySeparatorChar + "BattleState.txt";
+
+
+            Console.WriteLine("looking for battle state in: " + battleState);
+
+
         }
 
     }
