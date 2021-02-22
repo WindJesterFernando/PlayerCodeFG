@@ -34,6 +34,7 @@ namespace Final_Gambit_Player_Code
             FinalGambit.StatusEffectID.Init();
             FinalGambit.ItemID.Init();
             FinalGambit.BattleActionID.Init();
+            FinalGambit.ItemCost.Init();
             FinalGambit.recordOfBattleActions = new LinkedList<RecordOfBattleAction>();
 
 
@@ -418,7 +419,7 @@ namespace Final_Gambit_Player_Code
             return null;
         }
 
-        static public bool AreBattleActionAndTargetLegal(int battleActionID, PartyCharacter target)
+        static public bool AreBattleActionAndTargetLegal(int battleActionID, PartyCharacter target, bool writeErrorToConsole)
         {
 
             bool isLegal = true;
@@ -437,14 +438,17 @@ namespace Final_Gambit_Player_Code
             if (actionAndLegalReqs == null)
             {
                 isLegal = false;
-                Console.WriteLine(BattleActionID.lookUp[battleActionID] + " is not in the list of possible actions!");
+
+                if(writeErrorToConsole)
+                    Console.WriteLine(BattleActionID.lookUp[battleActionID] + " is not in the list of possible actions!");
             }
 
             if (actionAndLegalReqs != null)
             {
                 if (target == null && !actionAndLegalReqs.legalities.Contains(LegalTargetIdentifiers.NoTargetRequired))
                 {
-                    Console.WriteLine(BattleActionID.lookUp[battleActionID] + " requires a target!");
+                    if (writeErrorToConsole)
+                        Console.WriteLine(BattleActionID.lookUp[battleActionID] + " requires a target!");
                     isLegal = false;
                 }
 
@@ -454,7 +458,8 @@ namespace Final_Gambit_Player_Code
                     {
                         if (actionAndLegalReqs.legalities.Contains(LegalTargetIdentifiers.TargetSlain))
                         {
-                            Console.WriteLine(BattleActionID.lookUp[battleActionID] + " requires a slain target!");
+                            if (writeErrorToConsole)
+                                Console.WriteLine(BattleActionID.lookUp[battleActionID] + " requires a slain target!");
                             isLegal = false;
                         }
                     }
@@ -462,7 +467,8 @@ namespace Final_Gambit_Player_Code
                     {
                         if (!actionAndLegalReqs.legalities.Contains(LegalTargetIdentifiers.TargetSlain))
                         {
-                            Console.WriteLine(BattleActionID.lookUp[battleActionID] + " cannot target a slain character!");
+                            if (writeErrorToConsole)
+                                Console.WriteLine(BattleActionID.lookUp[battleActionID] + " cannot target a slain character!");
                             isLegal = false;
                         }
                     }
@@ -476,7 +482,8 @@ namespace Final_Gambit_Player_Code
                     {
                         if (actionAndLegalReqs.legalities.Contains(LegalTargetIdentifiers.TargetFoe))
                         {
-                            Console.WriteLine(BattleActionID.lookUp[battleActionID] + " cannot target an ally, must target a foe!");
+                            if (writeErrorToConsole)
+                                Console.WriteLine(BattleActionID.lookUp[battleActionID] + " cannot target an ally, must target a foe!");
                             isLegal = false;
                         }
                     }
@@ -484,7 +491,8 @@ namespace Final_Gambit_Player_Code
                     {
                         if (actionAndLegalReqs.legalities.Contains(LegalTargetIdentifiers.TargetAlly))
                         {
-                            Console.WriteLine(BattleActionID.lookUp[battleActionID] + " cannot target a foe, must target an ally!");
+                            if (writeErrorToConsole)
+                                Console.WriteLine(BattleActionID.lookUp[battleActionID] + " cannot target a foe, must target an ally!");
                             isLegal = false;
                         }
                     }
@@ -498,12 +506,12 @@ namespace Final_Gambit_Player_Code
         static public class CharacterClassID
         {
             public const int Fighter = 0;
-            public const int BlackMage = 1;
-            public const int WhiteMage = 2;
-            public const int Thief = 3;
+            public const int Wizard = 1;
+            public const int Cleric = 2;
+            public const int Rogue = 3;
 
             public const int Monk = 4;
-            public const int RedMage = 5;
+            public const int Alchemist = 5;
 
             static public Dictionary<int, string> lookUp;
 
@@ -511,16 +519,11 @@ namespace Final_Gambit_Player_Code
             {
                 lookUp = new Dictionary<int, string>();
                 lookUp.Add(CharacterClassID.Fighter, "Fighter");
-                lookUp.Add(CharacterClassID.BlackMage, "Black Mage");
-                lookUp.Add(CharacterClassID.WhiteMage, "White Mage");
-                lookUp.Add(CharacterClassID.Thief, "Thief");
+                lookUp.Add(CharacterClassID.Wizard, "Wizard");
+                lookUp.Add(CharacterClassID.Cleric, "Cleric");
+                lookUp.Add(CharacterClassID.Rogue, "Rogue");
                 lookUp.Add(CharacterClassID.Monk, "Monk");
-                lookUp.Add(CharacterClassID.RedMage, "Red Mage");
-
-                // foreach(string name in lookUp.Values)
-                // {
-                //     Debug.Log("** " + name);
-                // }
+                lookUp.Add(CharacterClassID.Alchemist, "Alchemis");
             }
 
         }
@@ -548,7 +551,7 @@ namespace Final_Gambit_Player_Code
 
 
             public const int Silence = 25;
-            public const int Beserk = 26;
+
             public const int Petrify = 27;
 
             public const int Bubble = 29;
@@ -558,26 +561,6 @@ namespace Final_Gambit_Player_Code
             public const int Esuna = 33;
             public const int Chakra = 34;
 
-            public const int Fire = 104;
-            public const int Fira = 105;
-            public const int Firaga = 106;
-
-            public const int FireAll = 114;
-            public const int FiraAll = 115;
-            public const int FiragaAll = 116;
-
-
-            public const int Cure = 120;
-            public const int Cura = 121;
-            public const int Curaga = 122;
-            public const int Life = 123;
-            public const int Lifa = 124;
-            public const int Lifaga = 125;
-
-
-
-            public const int Meteor = 130;
-            public const int Flare = 131;
             public const int Dispel = 132;
 
             public const int PoisonStrike = 141;
@@ -595,7 +578,6 @@ namespace Final_Gambit_Player_Code
             public const int PhoenixDown = 206;
             public const int EchoHerbs = 207;
             public const int Antidote = 208;
-            public const int GysahlGreens = 209;
             public const int GoldenNeedle = 210;
             public const int Remedy = 211;
 
@@ -610,19 +592,24 @@ namespace Final_Gambit_Player_Code
             public const int CraftPhoenixDown = 306;
             public const int CraftEchoHerbs = 307;
             public const int CraftAntidote = 308;
-            public const int CraftGysahlGreens = 309;
             public const int CraftGoldenNeedle = 310;
             public const int CraftRemedy = 311;
 
-
-            public const int CureAll = 400;
-            public const int CuraAll = 401;
-            public const int CuragaAll = 402;
-
-
             public const int QuickHit = 410;
-
             public const int StunStrike = 411;
+
+            public const int MagicMissile = 501;
+            public const int FlameStrike = 502;
+            public const int Fireball = 503;
+            public const int Disintegrate = 504;
+            public const int Meteor = 505;
+
+
+            public const int CureLightWounds = 551;
+            public const int CureModerateWounds = 552;
+            public const int CureSeriousWounds = 553;
+            public const int MassHeal = 554;
+            public const int Resurrection = 555;
 
 
             static public Dictionary<int, string> lookUp;
@@ -639,11 +626,11 @@ namespace Final_Gambit_Player_Code
                 lookUp.Add(BattleActionID.Attack, "Attack");
                 lookUp.Add(BattleActionID.Steal, "Steal");
 
-
                 lookUp.Add(BattleActionID.Haste, "Haste");
                 lookUp.Add(BattleActionID.Slow, "Slow");
 
                 lookUp.Add(BattleActionID.Regen, "Regen");
+
                 lookUp.Add(BattleActionID.Protect, "Protect");
                 lookUp.Add(BattleActionID.Shell, "Shell");
                 lookUp.Add(BattleActionID.Faith, "Faith");
@@ -655,7 +642,6 @@ namespace Final_Gambit_Player_Code
 
 
                 lookUp.Add(BattleActionID.Silence, "Silence");
-                lookUp.Add(BattleActionID.Beserk, "Beserk");
                 lookUp.Add(BattleActionID.Petrify, "Petrify");
                 lookUp.Add(BattleActionID.Bubble, "Bubble");
                 lookUp.Add(BattleActionID.AutoLife, "Auto Life");
@@ -664,35 +650,23 @@ namespace Final_Gambit_Player_Code
                 lookUp.Add(BattleActionID.Esuna, "Esuna");
                 lookUp.Add(BattleActionID.Chakra, "Chakra");
 
-                lookUp.Add(BattleActionID.Fire, "Fire");
-                lookUp.Add(BattleActionID.Fira, "Fira");
-                lookUp.Add(BattleActionID.Firaga, "Firaga");
 
-                lookUp.Add(BattleActionID.FireAll, "Fire All");
-                lookUp.Add(BattleActionID.FiraAll, "Fira All");
-                lookUp.Add(BattleActionID.FiragaAll, "Firaga All");
-
+                lookUp.Add(BattleActionID.MagicMissile, "Magic Missile");
+                lookUp.Add(BattleActionID.FlameStrike, "Flame Strike");
+                lookUp.Add(BattleActionID.Fireball, "Fireball");
+                lookUp.Add(BattleActionID.Disintegrate, "Disintegrate");
                 lookUp.Add(BattleActionID.Meteor, "Meteor");
-                lookUp.Add(BattleActionID.Flare, "Flare");
+
+
                 lookUp.Add(BattleActionID.Dispel, "Dispel");
 
 
 
-
-                lookUp.Add(BattleActionID.Cure, "Cure");
-                lookUp.Add(BattleActionID.Cura, "Cura");
-                lookUp.Add(BattleActionID.Curaga, "Curaga");
-
-                lookUp.Add(BattleActionID.CureAll, "Cure All");
-                lookUp.Add(BattleActionID.CuraAll, "Cura All");
-                lookUp.Add(BattleActionID.CuragaAll, "Curaga All");
-
-                lookUp.Add(BattleActionID.Life, "Life");
-                lookUp.Add(BattleActionID.Lifa, "Lifa");
-                lookUp.Add(BattleActionID.Lifaga, "Lifaga");
-
-
-
+                lookUp.Add(BattleActionID.CureLightWounds, "Cure Light Wounds");
+                lookUp.Add(BattleActionID.CureModerateWounds, "Cure Moderate Wounds");
+                lookUp.Add(BattleActionID.CureSeriousWounds, "Cure Serious Wounds");
+                lookUp.Add(BattleActionID.MassHeal, "Mass Heal");
+                lookUp.Add(BattleActionID.Resurrection, "Resurrection");
 
 
                 lookUp.Add(BattleActionID.PoisonStrike, "Poison Strike");
@@ -713,11 +687,8 @@ namespace Final_Gambit_Player_Code
                 lookUp.Add(BattleActionID.PhoenixDown, "Phoenix Down");
                 lookUp.Add(BattleActionID.EchoHerbs, "Echo Herbs");
                 lookUp.Add(BattleActionID.Antidote, "Antidote");
-                lookUp.Add(BattleActionID.GysahlGreens, "Gysahl Greens");
                 lookUp.Add(BattleActionID.GoldenNeedle, "Golden Needle");
                 lookUp.Add(BattleActionID.Remedy, "Remedy");
-
-
 
 
                 lookUp.Add(BattleActionID.CraftPotion, "Craft Potion");
@@ -729,7 +700,6 @@ namespace Final_Gambit_Player_Code
                 lookUp.Add(BattleActionID.CraftPhoenixDown, "Craft Phoenix Down");
                 lookUp.Add(BattleActionID.CraftEchoHerbs, "Craft Echo Herbs");
                 lookUp.Add(BattleActionID.CraftAntidote, "Craft Antidote");
-                lookUp.Add(BattleActionID.CraftGysahlGreens, "Craft Gysahl Greens");
                 lookUp.Add(BattleActionID.CraftGoldenNeedle, "Craft Golden Needle");
                 lookUp.Add(BattleActionID.CraftRemedy, "Craft Remedy");
 
@@ -745,20 +715,15 @@ namespace Final_Gambit_Player_Code
             BattleActionID.Deprotect,
             BattleActionID.Deshell,
             BattleActionID.Silence,
-            BattleActionID.Beserk,
             BattleActionID.Petrify,
             BattleActionID.Doom,
 
-            BattleActionID.Fire,
-            BattleActionID.Fira,
-            BattleActionID.Firaga,
-
-            BattleActionID.FireAll,
-            BattleActionID.FiraAll,
-            BattleActionID.FiragaAll,
-
+            BattleActionID.MagicMissile,
+            BattleActionID.FlameStrike,
+            BattleActionID.Fireball,
+            BattleActionID.Disintegrate,
             BattleActionID.Meteor,
-            BattleActionID.Flare,
+
             BattleActionID.Dispel,
             BattleActionID.PoisonStrike,
             BattleActionID.DispelStrike,
@@ -771,11 +736,12 @@ namespace Final_Gambit_Player_Code
 
                 requireNoTargetsIDs = new List<int>(){
                 Steal,
-                Chakra,
-                FireAll,
-                FiraAll,
-                FiragaAll,
-                Meteor,
+
+                BattleActionID.Fireball,
+                BattleActionID.Meteor,
+
+                FlurryOfBlows,
+
                 MegaElixer,
                 CraftPotion,
                 CraftHighPotion,
@@ -786,9 +752,12 @@ namespace Final_Gambit_Player_Code
                 CraftPhoenixDown,
                 CraftEchoHerbs,
                 CraftAntidote,
-                CraftGysahlGreens,
                 CraftGoldenNeedle,
-                CraftRemedy
+                CraftRemedy,
+
+                MassHeal
+
+
         };
 
 
@@ -837,7 +806,7 @@ namespace Final_Gambit_Player_Code
             public const int PhoenixDown = 206;
             public const int EchoHerbs = 207;
             public const int Antidote = 208;
-            public const int GysahlGreens = 209;
+            //public const int GysahlGreens = 209;
             public const int GoldenNeedle = 210;
             public const int Remedy = 211;
 
@@ -857,7 +826,7 @@ namespace Final_Gambit_Player_Code
                 lookUp.Add(ItemID.PhoenixDown, "Phoenix Down");
                 lookUp.Add(ItemID.EchoHerbs, "Echo Herbs");
                 lookUp.Add(ItemID.Antidote, "Antidote");
-                lookUp.Add(ItemID.GysahlGreens, "Gysahl Greens");
+                //lookUp.Add(ItemID.GysahlGreens, "Gysahl Greens");
                 lookUp.Add(ItemID.GoldenNeedle, "Golden Needle");
                 lookUp.Add(ItemID.Remedy, "Remedy");
                 lookUp.Add(ItemID.CraftMaterial, "Craft Material");
@@ -904,7 +873,7 @@ namespace Final_Gambit_Player_Code
             public const int Deshell = 14;
 
             public const int Silence = 15;
-            public const int Beserk = 16;
+            //public const int Beserk = 16;
             public const int Petrifying = 17;
             public const int Petrified = 18;
             public const int Bubble = 19;
@@ -931,7 +900,7 @@ namespace Final_Gambit_Player_Code
                 lookUp.Add(StatusEffectID.Deprotect, "Deprotect");
                 lookUp.Add(StatusEffectID.Deshell, "Deshell");
                 lookUp.Add(StatusEffectID.Silence, "Silence");
-                lookUp.Add(StatusEffectID.Beserk, "Beserk");
+                //lookUp.Add(StatusEffectID.Beserk, "Beserk");
                 lookUp.Add(StatusEffectID.Petrifying, "Petrifying");
                 lookUp.Add(StatusEffectID.Petrified, "Petrified");
                 lookUp.Add(StatusEffectID.Bubble, "Bubble");
@@ -946,29 +915,20 @@ namespace Final_Gambit_Player_Code
         static public int GetMPCostForBattleAction(int battleActionID)
         {
 
-            if (battleActionID == BattleActionID.Fire || battleActionID == BattleActionID.Cure)
+            if (battleActionID == BattleActionID.MagicMissile || battleActionID == BattleActionID.CureLightWounds)
                 return 10;
-            else if (battleActionID == BattleActionID.Fira || battleActionID == BattleActionID.Cura)
+            else if (battleActionID == BattleActionID.FlameStrike || battleActionID == BattleActionID.CureModerateWounds)
                 return 15;
-            else if (battleActionID == BattleActionID.Firaga || battleActionID == BattleActionID.Curaga)
+            else if (battleActionID == BattleActionID.CureSeriousWounds)//battleActionID == BattleActionID.Firaga || 
                 return 20;
-            else if (battleActionID == BattleActionID.FireAll || battleActionID == BattleActionID.CureAll)
-                return 20;
-            else if (battleActionID == BattleActionID.FiraAll || battleActionID == BattleActionID.CuraAll)
+            else if (battleActionID == BattleActionID.Fireball || battleActionID == BattleActionID.MassHeal)
                 return 30;
-            else if (battleActionID == BattleActionID.FiragaAll || battleActionID == BattleActionID.CuragaAll)
-                return 40;
-
-            else if (battleActionID == BattleActionID.Life)
-                return 15;
-            else if (battleActionID == BattleActionID.Lifa)
+            
+            else if (battleActionID == BattleActionID.Resurrection)
                 return 25;
-            else if (battleActionID == BattleActionID.Lifaga)
-                return 35;
+
             else if (battleActionID == BattleActionID.Meteor)
                 return 80;
-            else if (battleActionID == BattleActionID.Flare)
-                return 50;
 
             else if (battleActionID == BattleActionID.Haste || battleActionID == BattleActionID.Slow)
                 return 15;
@@ -983,8 +943,7 @@ namespace Final_Gambit_Player_Code
 
             else if (battleActionID == BattleActionID.Silence)
                 return 20;
-            else if (battleActionID == BattleActionID.Beserk)
-                return 15;
+
             else if (battleActionID == BattleActionID.Petrify)
                 return 15;
             else if (battleActionID == BattleActionID.Bubble)
@@ -1023,7 +982,7 @@ namespace Final_Gambit_Player_Code
                 return 20;
             else if (battleActionID == BattleActionID.CraftRemedy)
                 return 20;
-            else if (battleActionID == BattleActionID.CraftEchoHerbs || battleActionID == BattleActionID.CraftAntidote || battleActionID == BattleActionID.CraftGysahlGreens || battleActionID == BattleActionID.CraftGoldenNeedle)
+            else if (battleActionID == BattleActionID.CraftEchoHerbs || battleActionID == BattleActionID.CraftAntidote || battleActionID == BattleActionID.CraftGoldenNeedle)
                 return 10;
 
             else if (battleActionID == BattleActionID.QuickHit)
@@ -1034,6 +993,140 @@ namespace Final_Gambit_Player_Code
 
             return 0;
         }
+
+
+        static private int CalculateDamage(int attack, float attackModifier, int defense)
+        {
+            float baseDamageAmount = (float)attack * attackModifier;
+            float reductionAmount = 1f - (float)defense / 1000f;
+            int damageAmount = (int)(baseDamageAmount * reductionAmount);
+
+            if (damageAmount < 0)
+                damageAmount = 0;
+
+            return damageAmount;
+        }
+
+        static private int CalculateHeal(int magicAttack, float modifier)
+        {
+            int amount = (int)(((float)magicAttack) * modifier);
+
+            if (amount < 0)
+                amount = 0;
+
+            return amount;
+        }
+
+
+
+        static public class BattleActionParams
+        {
+
+            public const float AttackMod = 1f;
+
+            public const float MagicMissileMod = 1.0f;
+
+            public const float FlameStrikeMod = 1.5f;
+            public const float FireballMod = 0.9f;
+
+            public const float DisintegrateMod = 2.0f;
+            public const float MeteorMod = 1.2f;
+
+
+            public const float CureLightWoundsMod = 1.25f;
+            public const float CureModerateWoundsMod = 1.5f;
+            public const float CureSeriousWoundsMod = 1.75f;
+            public const float MassHealMod = 0.75f;
+            public const float ResurrectionMod = 1.5f;
+
+
+            public const float PoisonStrikeMod = 0.8f;
+            public const float DispelStrikeMod = 0.8f;
+            public const float ManaBurnStrikeMod = 0.8f;
+            public const float ManaBurnStrikeMpDamageMod = 0.2f;
+
+
+            public const float FlurryOfBlowsMod = 0.6f;
+
+            public const float ChakraMod = 0.2f;
+
+
+
+            public const int PotionHealAmount = 300;
+            public const int HighPotionHealAmount = 600;
+            public const int EtherMPHealAmount = 50;
+            public const int HighEtherMPHealAmount = 200;
+            public const int ElixerHealAmount = 800;
+            public const int ElixerMPHealAmount = 200;
+            public const int MegaElixerHealAmount = 800;
+            public const int MegaElixerMPHealAmount = 200;
+
+            public const int PhoenixDownHealAmount = 500;
+
+
+
+            public const int PotionCraftAmount = 3;
+            public const int HighPotionCraftAmount = 2;
+            public const int EtherCraftAmount = 2;
+            public const int HighEtherCraftAmount = 1;
+            public const int ElixerCraftAmount = 1;
+            public const int MegaElixerCraftAmount = 1;
+            public const int CraftAmountPhoenixDown = 2;
+            public const int CraftAmountEchoHerbs = 3;
+            public const int CraftAmountAntidote = 3;
+            public const int CraftAmountGysahlGreens = 3;
+            public const int CraftAmountGoldenNeedle = 3;
+            public const int CraftAmountRemedy = 1;
+
+
+            public const float QucikHitInitReplenish = 0.5f;
+            public const float QucikHitDamageMod = 1.0f;
+
+
+
+            public const int StunStrikeInitReduction = -50;
+            public const float StunStrikeDamageMod = 1.0f;
+
+
+        }
+
+        public static class ItemCost
+        {
+            public const int Potion = 3;
+            public const int HighPotion = 10;
+            public const int Ether = 10;
+            public const int HighEther = 20;
+            public const int Elixer = 30;
+            public const int MegaElixer = 50;
+            public const int PhoenixDown = 15;
+            public const int EchoHerbs = 3;
+            public const int Antidote = 3;
+            public const int GoldenNeedle = 3;
+            public const int Remedy = 10;
+            public const int CraftMaterial = 1;
+
+            static public Dictionary<int, int> lookUpCostValueFromID;
+            static public void Init()
+            {
+                lookUpCostValueFromID = new Dictionary<int, int>();
+
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.Potion, Potion);
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.HighPotion, HighPotion);
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.Ether, Ether);
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.HighEther, HighEther);
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.Elixer, Elixer);
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.MegaElixer, MegaElixer);
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.PhoenixDown, PhoenixDown);
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.EchoHerbs, EchoHerbs);
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.Antidote, Antidote);
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.GoldenNeedle, GoldenNeedle);
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.Remedy, Remedy);
+                lookUpCostValueFromID.Add(FinalGambit.ItemID.CraftMaterial, CraftMaterial);
+
+            }
+
+        }
+
     }
 
     public static class FileNames

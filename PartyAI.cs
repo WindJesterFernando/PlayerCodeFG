@@ -1,6 +1,9 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+//using Microsoft.Office.Interop.Excel;
+
+
 
 namespace Final_Gambit_Player_Code
 {
@@ -10,6 +13,8 @@ namespace Final_Gambit_Player_Code
 
         static public void ProcessAI()
         {
+           
+            #region SampleCode
 
 
             PartyCharacter target = null;
@@ -26,7 +31,6 @@ namespace Final_Gambit_Player_Code
             }
 
             FinalGambit.PerformBattleAction(FinalGambit.BattleActionID.Attack, target);
-
 
 
             //Console.WriteLine("Char with init: " + FinalGambit.characterWithInitiative);
@@ -48,11 +52,15 @@ namespace Final_Gambit_Player_Code
             //    //The character with initiative is a figher, do something here...
             //}
 
-
+            #endregion
 
         }
+
+
     }
 
 }
+
+
 
 
