@@ -13,8 +13,35 @@ namespace Final_Gambit_Player_Code
 
         static public void ProcessAI()
         {
-           
+
+            ///Console.WriteLine("asdfgfwegwersgwerhgerwaghwererhghgrew");
+
+
             #region SampleCode
+
+
+            if (FinalGambit.BattleState.characterWithInitiative.classID == FinalGambit.CharacterClassID.Fighter)
+            {
+                //The character with initiative is a figher, do something here...
+
+                Console.WriteLine("this is a fighter");
+
+            }
+            else if (FinalGambit.BattleState.characterWithInitiative.classID == FinalGambit.CharacterClassID.Cleric)
+            {
+                //The character with initiative is a figher, do something here...
+
+                Console.WriteLine("this is a cleric");
+
+            }
+            else if (FinalGambit.BattleState.characterWithInitiative.classID == FinalGambit.CharacterClassID.Wizard)
+            {
+                //The character with initiative is a figher, do something here...
+
+                Console.WriteLine("this is a wizard");
+
+            }
+
 
 
             PartyCharacter target = null;
@@ -33,24 +60,30 @@ namespace Final_Gambit_Player_Code
             FinalGambit.PerformBattleAction(FinalGambit.BattleActionID.Attack, target);
 
 
+
+
             //Console.WriteLine("Char with init: " + FinalGambit.characterWithInitiative);
 
 
-            //foreach (PartyCharacter pc in FinalGambit.BattleState.partyCharacters)
-            //{
-            //    foreach(StatusEffect se in pc.statusEffects)
-            //    {
-            //        if(se.id == FinalGambit.StatusEffectID.Poison)
-            //        {
-            //            //We have found a character that is poisoned, do something here...
-            //        }
-            //    }
-            //}
 
-            //if(FinalGambit.characterWithInitiative.classID == FinalGambit.CharacterClassID.Fighter)
-            //{
-            //    //The character with initiative is a figher, do something here...
-            //}
+
+
+            foreach (PartyCharacter pc in FinalGambit.BattleState.partyCharacters)
+            {
+                foreach (StatusEffect se in pc.statusEffects)
+                {
+                    if (se.id == FinalGambit.StatusEffectID.Poison)
+                    {
+                        //We have found a character that is poisoned, do something here...
+                    }
+                }
+            }
+
+
+
+
+
+
 
             #endregion
 
