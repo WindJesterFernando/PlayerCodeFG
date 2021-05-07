@@ -14,7 +14,7 @@ namespace Final_Gambit_Player_Code
         static public void ProcessAI()
         {
 
-            ///Console.WriteLine("asdfgfwegwersgwerhgerwaghwererhghgrew");
+            Console.WriteLine("Processing AI!");
 
 
             #region SampleCode
@@ -44,6 +44,7 @@ namespace Final_Gambit_Player_Code
 
 
 
+            //Find the foe with the lowest HP
             PartyCharacter target = null;
 
             foreach (PartyCharacter pc in FinalGambit.BattleState.foeCharacters)
@@ -57,15 +58,13 @@ namespace Final_Gambit_Player_Code
                 }
             }
 
+            //This is the line of code that tells FG that we want to perform the attack action and target the foe with the lowest HP
             FinalGambit.PerformBattleAction(FinalGambit.BattleActionID.Attack, target);
 
 
 
 
             //Console.WriteLine("Char with init: " + FinalGambit.characterWithInitiative);
-
-
-
 
 
             foreach (PartyCharacter pc in FinalGambit.BattleState.partyCharacters)
@@ -78,10 +77,6 @@ namespace Final_Gambit_Player_Code
                     }
                 }
             }
-
-
-
-
 
 
 
