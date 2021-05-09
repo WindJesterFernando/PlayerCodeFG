@@ -910,7 +910,7 @@ namespace Final_Gambit_Player_Code
 
                 lookup.Add(BattleActionID.Slow, 10);
                 lookup.Add(BattleActionID.MagicMissile, 10);
-                lookup.Add(BattleActionID.PoisonNova, 0);
+                lookup.Add(BattleActionID.PoisonNova, 10);
                 lookup.Add(BattleActionID.Petrify, 15);
                 lookup.Add(BattleActionID.FlameStrike, 30);
                 lookup.Add(BattleActionID.Fireball, 25);
