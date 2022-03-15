@@ -1,15 +1,15 @@
-/Users/fernandorestituto/Desktop/PlayerCodeFG/bin/Debug/net5.0/PlayerCodeFG.deps.json
-/Users/fernandorestituto/Desktop/PlayerCodeFG/bin/Debug/net5.0/PlayerCodeFG.runtimeconfig.json
-/Users/fernandorestituto/Desktop/PlayerCodeFG/bin/Debug/net5.0/PlayerCodeFG.runtimeconfig.dev.json
-/Users/fernandorestituto/Desktop/PlayerCodeFG/bin/Debug/net5.0/PlayerCodeFG.dll
-/Users/fernandorestituto/Desktop/PlayerCodeFG/bin/Debug/net5.0/ref/PlayerCodeFG.dll
-/Users/fernandorestituto/Desktop/PlayerCodeFG/bin/Debug/net5.0/PlayerCodeFG.pdb
-/Users/fernandorestituto/Desktop/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.csprojAssemblyReference.cache
-/Users/fernandorestituto/Desktop/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.GeneratedMSBuildEditorConfig.editorconfig
-/Users/fernandorestituto/Desktop/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.AssemblyInfoInputs.cache
-/Users/fernandorestituto/Desktop/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.AssemblyInfo.cs
-/Users/fernandorestituto/Desktop/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.csproj.CoreCompileInputs.cache
-/Users/fernandorestituto/Desktop/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.dll
-/Users/fernandorestituto/Desktop/PlayerCodeFG/obj/Debug/net5.0/ref/PlayerCodeFG.dll
-/Users/fernandorestituto/Desktop/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.pdb
-/Users/fernandorestituto/Desktop/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.genruntimeconfig.cache
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.csprojAssemblyReference.cache
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.GeneratedMSBuildEditorConfig.editorconfig
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.AssemblyInfoInputs.cache
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.AssemblyInfo.cs
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.csproj.CoreCompileInputs.cache
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/bin/Debug/net5.0/PlayerCodeFG.deps.json
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/bin/Debug/net5.0/PlayerCodeFG.runtimeconfig.json
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/bin/Debug/net5.0/PlayerCodeFG.runtimeconfig.dev.json
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/bin/Debug/net5.0/PlayerCodeFG.dll
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/bin/Debug/net5.0/ref/PlayerCodeFG.dll
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/bin/Debug/net5.0/PlayerCodeFG.pdb
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.dll
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/obj/Debug/net5.0/ref/PlayerCodeFG.dll
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.pdb
+/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/obj/Debug/net5.0/PlayerCodeFG.genruntimeconfig.cache

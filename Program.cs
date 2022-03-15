@@ -16,8 +16,3 @@ namespace Final_Gambit_Player_Code
     }
 
 }
-
-
-
-
-

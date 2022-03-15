@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/fernandorestituto/Desktop/PlayerCodeFG/PlayerCodeFG.csproj": {}
+    "/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/PlayerCodeFG.csproj": {}
   },
   "projects": {
-    "/Users/fernandorestituto/Desktop/PlayerCodeFG/PlayerCodeFG.csproj": {
+    "/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/PlayerCodeFG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fernandorestituto/Desktop/PlayerCodeFG/PlayerCodeFG.csproj",
+        "projectUniqueName": "/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/PlayerCodeFG.csproj",
         "projectName": "PlayerCodeFG",
-        "projectPath": "/Users/fernandorestituto/Desktop/PlayerCodeFG/PlayerCodeFG.csproj",
+        "projectPath": "/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/PlayerCodeFG.csproj",
         "packagesPath": "/Users/fernandorestituto/.nuget/packages/",
-        "outputPath": "/Users/fernandorestituto/Desktop/PlayerCodeFG/obj/",
+        "outputPath": "/Users/fernandorestituto/Desktop/Final Gambit/PlayerCodeFG/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

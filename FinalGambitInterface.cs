@@ -538,14 +538,23 @@ namespace Final_Gambit_Player_Code
 
             public const int Haste = 13;
             public const int Slow = 14;
+            //public const int Regen = 15;
 
+            // public const int Protect = 17;
+            // public const int Shell = 18;
             public const int Faith = 19;
             public const int Brave = 20;
             public const int Debrave = 21;
             public const int Defaith = 22;
+            // public const int Deprotect = 23;
+            // public const int Deshell = 24;
+
+
+            //public const int Silence = 25;
 
             public const int Petrify = 27;
 
+            //public const int Bubble = 29;
             public const int AutoLife = 30;
             public const int Doom = 31;
 
@@ -555,13 +564,15 @@ namespace Final_Gambit_Player_Code
             public const int Dispel = 132;
 
             public const int PoisonStrike = 141;
+            //public const int DispelStrike = 142;
+            //public const int ManaBurnStrike = 143;
             public const int FlurryOfBlows = 144;
 
 
             public const int Potion = 200;
             public const int Ether = 202;
-            public const int Elixer = 204;
-            public const int MegaElixer = 205;
+            public const int Elixir = 204;
+            public const int MegaElixir = 205;
             public const int Revive = 206;
             public const int SilenceRemedy = 207;
             public const int PoisonRemedy = 208;
@@ -594,6 +605,7 @@ namespace Final_Gambit_Player_Code
 
             public const int MassHeal = 554;
             public const int Resurrection = 555;
+            public const int QuickHeal = 556;
 
 
             public const int ManaBurn = 601;
@@ -611,18 +623,22 @@ namespace Final_Gambit_Player_Code
             {
                 lookUp = new Dictionary<int, string>();
                 lookUp.Add(BattleActionID.NoValue, "");
+
                 lookUp.Add(BattleActionID.Attack, "Attack");
                 lookUp.Add(BattleActionID.Steal, "Steal");
 
                 lookUp.Add(BattleActionID.Haste, "Haste");
                 lookUp.Add(BattleActionID.Slow, "Slow");
 
+
                 lookUp.Add(BattleActionID.Faith, "Faith");
                 lookUp.Add(BattleActionID.Brave, "Brave");
                 lookUp.Add(BattleActionID.Debrave, "Debrave");
                 lookUp.Add(BattleActionID.Defaith, "Defaith");
 
+                //lookUp.Add(BattleActionID.Silence, "Silence");
                 lookUp.Add(BattleActionID.Petrify, "Petrify");
+                //lookUp.Add(BattleActionID.Bubble, "Bubble");
                 lookUp.Add(BattleActionID.AutoLife, "Auto Life");
                 lookUp.Add(BattleActionID.Doom, "Doom");
 
@@ -641,14 +657,16 @@ namespace Final_Gambit_Player_Code
 
                 lookUp.Add(BattleActionID.Dispel, "Dispel");
 
-
                 lookUp.Add(BattleActionID.CureLight, "Cure Light");
                 lookUp.Add(BattleActionID.CureSerious, "Cure Serious");
                 lookUp.Add(BattleActionID.MassHeal, "Mass Heal");
+                lookUp.Add(BattleActionID.QuickHeal, "Quick Heal");
+
                 lookUp.Add(BattleActionID.Resurrection, "Resurrection");
 
-
                 lookUp.Add(BattleActionID.PoisonStrike, "Poison Strike");
+                //lookUp.Add(BattleActionID.DispelStrike, "Dispel Strike");
+                //lookUp.Add(BattleActionID.ManaBurnStrike, "Mana Burn Strike");
                 lookUp.Add(BattleActionID.FlurryOfBlows, "Flurry Of Blows");
 
                 lookUp.Add(BattleActionID.QuickHit, "Quick Hit");
@@ -656,18 +674,15 @@ namespace Final_Gambit_Player_Code
 
                 lookUp.Add(BattleActionID.SilenceStrike, "Silence Strike");
 
-
-
                 lookUp.Add(BattleActionID.Potion, "Potion");
                 lookUp.Add(BattleActionID.Ether, "Ether");
-                lookUp.Add(BattleActionID.Elixer, "Elixer");
-                lookUp.Add(BattleActionID.MegaElixer, "Mega Elixer");
+                lookUp.Add(BattleActionID.Elixir, "Elixir");
+                lookUp.Add(BattleActionID.MegaElixir, "Mega Elixir");
                 lookUp.Add(BattleActionID.Revive, "Revive");
                 lookUp.Add(BattleActionID.SilenceRemedy, "Silence Remedy");
                 lookUp.Add(BattleActionID.PoisonRemedy, "Poison Remedy");
                 lookUp.Add(BattleActionID.PetrifyRemedy, "Petrify Remedy");
                 lookUp.Add(BattleActionID.FullRemedy, "Full Remedy");
-
 
                 lookUp.Add(BattleActionID.CraftPotion, "Craft Potion");
                 lookUp.Add(BattleActionID.CraftEther, "Craft Ether");
@@ -699,7 +714,6 @@ namespace Final_Gambit_Player_Code
 
             BattleActionID.Dispel,
             BattleActionID.PoisonStrike,
-
             BattleActionID.FlurryOfBlows,
             BattleActionID.QuickHit,
             BattleActionID.StunStrike,
@@ -718,7 +732,7 @@ namespace Final_Gambit_Player_Code
 
                 FlurryOfBlows,
 
-                MegaElixer,
+                MegaElixir,
                 CraftPotion,
                 CraftEther,
                 CraftElixer,
@@ -753,7 +767,10 @@ namespace Final_Gambit_Player_Code
                 foreach (int i in ItemID.lookUp.Keys)
                 {
                     if (ItemID.lookUp[i] == battleActionName)
+                    {
+                        //Debug.Log(ItemID.lookUp[i] + " == " + battleActionName);
                         return true;
+                    }
                 }
 
                 return false;
@@ -776,8 +793,8 @@ namespace Final_Gambit_Player_Code
 
             public const int Potion = 200;
             public const int Ether = 202;
-            public const int Elixer = 204;
-            public const int MegaElixer = 205;
+            public const int Elixir = 204;
+            public const int MegaElixir = 205;
             public const int Revive = 206;
             public const int SilenceRemedy = 207;
             public const int PoisonRemedy = 208;
@@ -792,8 +809,8 @@ namespace Final_Gambit_Player_Code
                 lookUp = new Dictionary<int, string>();
                 lookUp.Add(ItemID.Potion, "Potion");
                 lookUp.Add(ItemID.Ether, "Ether");
-                lookUp.Add(ItemID.Elixer, "Elixer");
-                lookUp.Add(ItemID.MegaElixer, "Mega Elixer");
+                lookUp.Add(ItemID.Elixir, "Elixir");
+                lookUp.Add(ItemID.MegaElixir, "Mega Elixir");
                 lookUp.Add(ItemID.Revive, "Revive");
                 lookUp.Add(ItemID.SilenceRemedy, "Silence Remedy");
                 lookUp.Add(ItemID.PoisonRemedy, "Poison Remedy");
@@ -863,16 +880,16 @@ namespace Final_Gambit_Player_Code
             }
 
         }
+
         public static class ItemCost
         {
             public const int Potion = 10;
             public const int Ether = 15;
-            public const int Elixer = 25;
-            public const int MegaElixer = 50;
+            public const int Elixir = 25;
+            public const int MegaElixir = 50;
             public const int Revive = 15;
             public const int SilenceRemedy = 2;
             public const int PoisonRemedy = 1;
-            //public const int GysahlGreens = 3;
             public const int PetrifyRemedy = 3;
             public const int FullRemedy = 5;
             public const int CraftMaterial = 1;
@@ -883,15 +900,12 @@ namespace Final_Gambit_Player_Code
                 lookUpCostValueFromID = new Dictionary<int, int>();
 
                 lookUpCostValueFromID.Add(ItemID.Potion, Potion);
-                //lookUpCostValueFromID.Add(ItemID.HighPotion, HighPotion);
                 lookUpCostValueFromID.Add(ItemID.Ether, Ether);
-                //lookUpCostValueFromID.Add(ItemID.HighEther, HighEther);
-                lookUpCostValueFromID.Add(ItemID.Elixer, Elixer);
-                lookUpCostValueFromID.Add(ItemID.MegaElixer, MegaElixer);
+                lookUpCostValueFromID.Add(ItemID.Elixir, Elixir);
+                lookUpCostValueFromID.Add(ItemID.MegaElixir, MegaElixir);
                 lookUpCostValueFromID.Add(ItemID.Revive, Revive);
                 lookUpCostValueFromID.Add(ItemID.SilenceRemedy, SilenceRemedy);
                 lookUpCostValueFromID.Add(ItemID.PoisonRemedy, PoisonRemedy);
-                //lookUpCostValueFromID.Add(ItemID.GysahlGreens, GysahlGreens);
                 lookUpCostValueFromID.Add(ItemID.PetrifyRemedy, PetrifyRemedy);
                 lookUpCostValueFromID.Add(ItemID.FullRemedy, FullRemedy);
                 lookUpCostValueFromID.Add(ItemID.CraftMaterial, CraftMaterial);
@@ -899,6 +913,7 @@ namespace Final_Gambit_Player_Code
             }
 
         }
+
         public static class BattleActionMPCost
         {
 
@@ -908,42 +923,43 @@ namespace Final_Gambit_Player_Code
             {
                 lookup = new Dictionary<int, int>();
 
-                lookup.Add(BattleActionID.Slow, 10);
+                lookup.Add(BattleActionID.Slow, 15);
                 lookup.Add(BattleActionID.MagicMissile, 10);
-                lookup.Add(BattleActionID.PoisonNova, 10);
+                lookup.Add(BattleActionID.PoisonNova, 15);
                 lookup.Add(BattleActionID.Petrify, 15);
                 lookup.Add(BattleActionID.FlameStrike, 30);
                 lookup.Add(BattleActionID.Fireball, 25);
                 lookup.Add(BattleActionID.ManaBurn, 20);
-                lookup.Add(BattleActionID.Meteor, 65);
+                lookup.Add(BattleActionID.Meteor, 60);
 
-
-                lookup.Add(BattleActionID.CureLight, 6);
+                lookup.Add(BattleActionID.CureLight, 10);
                 lookup.Add(BattleActionID.CureSerious, 20);
+                lookup.Add(BattleActionID.QuickHeal, 15);
+
                 lookup.Add(BattleActionID.MassHeal, 20);
                 lookup.Add(BattleActionID.Resurrection, 25);
-                lookup.Add(BattleActionID.Haste, 10);
-                lookup.Add(BattleActionID.Faith, 10);
-                lookup.Add(BattleActionID.Brave, 10);
-                lookup.Add(BattleActionID.Defaith, 5);
-                lookup.Add(BattleActionID.Debrave, 5);
+                lookup.Add(BattleActionID.Haste, 15);
+                lookup.Add(BattleActionID.Faith, 15);
+                lookup.Add(BattleActionID.Brave, 15);
+                lookup.Add(BattleActionID.Defaith, 10);
+                lookup.Add(BattleActionID.Debrave, 10);
                 lookup.Add(BattleActionID.AutoLife, 25);
                 lookup.Add(BattleActionID.Doom, 15);
                 lookup.Add(BattleActionID.Esuna, 10);
-                lookup.Add(BattleActionID.Dispel, 15);
-                lookup.Add(BattleActionID.PoisonStrike, 3);
-                lookup.Add(BattleActionID.FlurryOfBlows, 5);
-                lookup.Add(BattleActionID.QuickHit, 5);
-                lookup.Add(BattleActionID.StunStrike, 5);
+                lookup.Add(BattleActionID.Dispel, 10);
+                lookup.Add(BattleActionID.PoisonStrike, 15);
+                lookup.Add(BattleActionID.FlurryOfBlows, 15);
+                lookup.Add(BattleActionID.QuickHit, 15);
+                lookup.Add(BattleActionID.StunStrike, 15);
 
-                lookup.Add(BattleActionID.SilenceStrike, 3);
-                lookup.Add(BattleActionID.Chakra, 3);
+                lookup.Add(BattleActionID.SilenceStrike, 15);
+                lookup.Add(BattleActionID.Chakra, 0);
                 lookup.Add(BattleActionID.CraftPotion, 10);
-                lookup.Add(BattleActionID.CraftEther, 10);
-                lookup.Add(BattleActionID.CraftElixer, 10);
-                lookup.Add(BattleActionID.CraftMegaElixer, 10);
-                lookup.Add(BattleActionID.CraftRevive, 10);
-                lookup.Add(BattleActionID.CraftFullRemedy, 10);
+                lookup.Add(BattleActionID.CraftEther, 15);
+                lookup.Add(BattleActionID.CraftElixer, 20);
+                lookup.Add(BattleActionID.CraftMegaElixer, 25);
+                lookup.Add(BattleActionID.CraftRevive, 20);
+                lookup.Add(BattleActionID.CraftFullRemedy, 15);
                 lookup.Add(BattleActionID.CraftSilenceRemedy, 10);
                 lookup.Add(BattleActionID.CraftPoisonRemedy, 10);
                 lookup.Add(BattleActionID.CraftPetrifyRemedy, 10);
@@ -956,7 +972,15 @@ namespace Final_Gambit_Player_Code
                     return lookup[id];
                 return 0;
             }
+
+            public static int GetMaximumMPCostForBattleAction(int id)
+            {
+                if (BattleActionID.Chakra == id)
+                    return 10;
+                return 0;
+            }
         }
+
         public static class CraftMaterialCost
         {
             static Dictionary<int, int> lookup;
@@ -965,15 +989,15 @@ namespace Final_Gambit_Player_Code
             {
                 lookup = new Dictionary<int, int>();
 
-                lookup.Add(BattleActionID.CraftPotion, 1);
-                lookup.Add(BattleActionID.CraftEther, 1);
-                lookup.Add(BattleActionID.CraftElixer, 2);
-                lookup.Add(BattleActionID.CraftMegaElixer, 3);
-                lookup.Add(BattleActionID.CraftRevive, 1);
-                lookup.Add(BattleActionID.CraftSilenceRemedy, 1);
-                lookup.Add(BattleActionID.CraftPoisonRemedy, 1);
-                lookup.Add(BattleActionID.CraftPetrifyRemedy, 1);
-                lookup.Add(BattleActionID.CraftFullRemedy, 1);
+                lookup.Add(BattleActionID.CraftPotion, 2);
+                lookup.Add(BattleActionID.CraftEther, 2);
+                lookup.Add(BattleActionID.CraftElixer, 4);
+                lookup.Add(BattleActionID.CraftMegaElixer, 6);
+                lookup.Add(BattleActionID.CraftRevive, 2);
+                lookup.Add(BattleActionID.CraftSilenceRemedy, 2);
+                lookup.Add(BattleActionID.CraftPoisonRemedy, 2);
+                lookup.Add(BattleActionID.CraftPetrifyRemedy, 2);
+                lookup.Add(BattleActionID.CraftFullRemedy, 2);
             }
 
             public static int GetMaterialCostForBattleAction(int id)
@@ -986,105 +1010,61 @@ namespace Final_Gambit_Player_Code
         }
 
 
-        static public int CalculateDamage(int id, PartyCharacter attacker, PartyCharacter target)
-        {
-            int attack = 0;
-            float attackModifier = 0;
-            int defense = 0;
-            bool isPhysical = false;
 
-            if (id == BattleActionID.Attack || id == BattleActionID.FlurryOfBlows || id == BattleActionID.PoisonStrike || id == BattleActionID.QuickHit || id == BattleActionID.SilenceStrike || id == BattleActionID.StunStrike)
-                isPhysical = true;
+
+
+        static public int CalculateDamageAmount(PartyCharacter attacker, float attackModifier, PartyCharacter defender, bool isPhysical)
+        {
+
+            int attack, defense;
+            float damagePercentMod = 1;
 
             if (isPhysical)
             {
                 attack = attacker.strength;
-                defense = target.defense;
+                defense = defender.defense;
+
+                if (HasStatusEffectID(attacker.statusEffects, StatusEffectID.Brave))
+                    damagePercentMod += StatusEffectsParams.BravePercentMod;
+
+                if (HasStatusEffectID(attacker.statusEffects, StatusEffectID.Debrave))
+                    damagePercentMod += StatusEffectsParams.DebravePercentMod;
             }
             else
             {
                 attack = attacker.wisdom;
-                defense = target.magicDefense;
+                defense = defender.magicDefense;
+
+
+                if (HasStatusEffectID(attacker.statusEffects, StatusEffectID.Faith))
+                    damagePercentMod += StatusEffectsParams.FaithPercentMod;
+
+                if (HasStatusEffectID(attacker.statusEffects, StatusEffectID.Defaith))
+                    damagePercentMod += StatusEffectsParams.DefaithPercentMod;
             }
 
-            if (id == BattleActionID.Attack)
-                attackModifier = BattleActionParams.AttackMod;
-            else if (id == BattleActionID.Fireball)
-                attackModifier = BattleActionParams.FireballMod;
-            else if (id == BattleActionID.FlameStrike)
-                attackModifier = BattleActionParams.FlameStrikeMod;
-            else if (id == BattleActionID.FlurryOfBlows)
-                attackModifier = BattleActionParams.FlurryOfBlowsMod;
-            else if (id == BattleActionID.MagicMissile)
-                attackModifier = BattleActionParams.MagicMissileMod;
-            else if (id == BattleActionID.Meteor)
-                attackModifier = BattleActionParams.MeteorMod;
-            else if (id == BattleActionID.PoisonStrike)
-                attackModifier = BattleActionParams.PoisonStrikeMod;
-            else if (id == BattleActionID.QuickHit)
-                attackModifier = BattleActionParams.QucikHitDamageMod;
-            else if (id == BattleActionID.SilenceStrike)
-                attackModifier = BattleActionParams.SilenceStrikeDamageMod;
-            else if (id == BattleActionID.StunStrike)
-                attackModifier = BattleActionParams.StunStrikeDamageMod;
-            else
-                Console.WriteLine("Attack ID not found in CalculateDamage(), damage modifier is set to 0.");
-
             float baseDamageAmount = (float)attack * attackModifier;
-            float reductionAmount = 1f - (float)defense / 1000f;
-            int damageAmount = (int)(baseDamageAmount * reductionAmount);
+            float reductionAmount = 1f - (float)defense / 100f;
+            int damageAmount = (int)(baseDamageAmount * reductionAmount * damagePercentMod);
 
             if (damageAmount < 0)
                 damageAmount = 0;
 
             return damageAmount;
+
         }
-
-        static public int CalculateHeal(int id, PartyCharacter healer)
+        static public int CalculateHealingAmount(PartyCharacter healer, float modifier)
         {
-            int wisdom = healer.wisdom;
-            float modifier = 0;
-            bool isItem = false;
+            int magicAttack = healer.wisdom;
+            float healPercentMod = 1;
 
+            if (HasStatusEffectID(healer.statusEffects, StatusEffectID.Faith))
+                healPercentMod += StatusEffectsParams.FaithPercentMod;
 
-            if (id == BattleActionID.CureLight)
-                modifier = BattleActionParams.CureLightMod;
-            else if (id == BattleActionID.CureSerious)
-                modifier = BattleActionParams.CureSeriousMod;
-            else if (id == BattleActionID.MassHeal)
-                modifier = BattleActionParams.MassHealMod;
-            else if (id == BattleActionID.Resurrection)
-                modifier = BattleActionParams.ResurrectionMod;
+            if (HasStatusEffectID(healer.statusEffects, StatusEffectID.Defaith))
+                healPercentMod += StatusEffectsParams.DefaithPercentMod;
 
-            else if (id == BattleActionID.Potion)
-            {
-                modifier = BattleActionParams.PotionHealAmount;
-                isItem = true;
-            }
-            else if (id == BattleActionID.Elixer)
-            {
-                modifier = BattleActionParams.ElixerHealAmount;
-                isItem = true;
-            }
-            else if (id == BattleActionID.MegaElixer)
-            {
-                modifier = BattleActionParams.MegaElixerHealAmount;
-                isItem = true;
-            }
-            else if (id == BattleActionID.Revive)
-            {
-                modifier = BattleActionParams.PotionHealAmount;
-                isItem = true;
-            }
-            else
-                Console.WriteLine("Attack ID not found in CalculateHeal(), heal modifier is set to 0.");
-
-            int amount;
-
-            if (!isItem)
-                amount = (int)(((float)wisdom) * modifier);
-            else
-                amount = (int)modifier;
+            int amount = (int)(magicAttack * modifier * healPercentMod);
 
             if (amount < 0)
                 amount = 0;
@@ -1092,84 +1072,204 @@ namespace Final_Gambit_Player_Code
             return amount;
         }
 
-        static public int CalculateManaRestore(int id, PartyCharacter healer)
+
+        static private bool HasStatusEffectID(LinkedList<StatusEffect> statusEffects, int id)
         {
-
-            int wisdom = healer.wisdom;
-            float modifier = 0;
-            bool isItem = false;
-
-
-            if (id == BattleActionID.Chakra)
-                modifier = BattleActionParams.ChakraMod;
-            else if (id == BattleActionID.Ether)
+            foreach (StatusEffect se in statusEffects)
             {
-                modifier = BattleActionParams.EtherMPHealAmount;
-                isItem = true;
+                if (se.id == id)
+                    return true;
             }
-            else if (id == BattleActionID.Elixer)
-            {
-                modifier = BattleActionParams.ElixerMPHealAmount;
-                isItem = true;
-            }
-            else if (id == BattleActionID.MegaElixer)
-            {
-                modifier = BattleActionParams.MegaElixerMPHealAmount;
-                isItem = true;
-            }
-            else
-                Console.WriteLine("Action ID not found in CalculateManaRestore(), mana restore modifier is set to 0.");
 
-            int amount;
-
-            if (!isItem)
-                amount = (int)(((float)wisdom) * modifier);
-            else
-                amount = (int)modifier;
-
-            if (amount < 0)
-                amount = 0;
-
-            return amount;
+            return false;
         }
 
-        static public int CalculateManaDamage(int id, PartyCharacter attacker, PartyCharacter target)
-        {
-            int attack = 0;
-            float attackModifier = 0;
-            int defense = 0;
-            bool isPhysical = false;
 
-            if (id == BattleActionID.Attack || id == BattleActionID.FlurryOfBlows || id == BattleActionID.PoisonStrike || id == BattleActionID.QuickHit || id == BattleActionID.SilenceStrike || id == BattleActionID.StunStrike)
-                isPhysical = true;
+        // static public int CalculateDamage(int id, PartyCharacter attacker, PartyCharacter target)
+        // {
+        //     int attack = 0;
+        //     float attackModifier = 0;
+        //     int defense = 0;
+        //     bool isPhysical = false;
 
-            if (isPhysical)
-            {
-                attack = attacker.strength;
-                defense = target.defense;
-            }
-            else
-            {
-                attack = attacker.wisdom;
-                defense = target.magicDefense;
-            }
+        //     if (id == BattleActionID.Attack || id == BattleActionID.FlurryOfBlows || id == BattleActionID.PoisonStrike || id == BattleActionID.QuickHit || id == BattleActionID.SilenceStrike || id == BattleActionID.StunStrike)
+        //         isPhysical = true;
 
-            if (id == BattleActionID.ManaBurn)
-                attackModifier = BattleActionParams.ManaBurnMpDamageMod;
-            else
-                Console.WriteLine("Attack ID not found in CalculateManaDamage(), mana damage modifier is set to 0.");
+        //     if (isPhysical)
+        //     {
+        //         attack = attacker.strength;
+        //         defense = target.defense;
+        //     }
+        //     else
+        //     {
+        //         attack = attacker.wisdom;
+        //         defense = target.magicDefense;
+        //     }
 
-            float baseDamageAmount = (float)attack * attackModifier;
-            float reductionAmount = 1f - (float)defense / 1000f;
-            int damageAmount = (int)(baseDamageAmount * reductionAmount);
+        //     if (id == BattleActionID.Attack)
+        //         attackModifier = BattleActionParams.AttackMod;
+        //     else if (id == BattleActionID.Fireball)
+        //         attackModifier = BattleActionParams.FireballMod;
+        //     else if (id == BattleActionID.FlameStrike)
+        //         attackModifier = BattleActionParams.FlameStrikeMod;
+        //     else if (id == BattleActionID.FlurryOfBlows)
+        //         attackModifier = BattleActionParams.FlurryOfBlowsMod;
+        //     else if (id == BattleActionID.MagicMissile)
+        //         attackModifier = BattleActionParams.MagicMissileMod;
+        //     else if (id == BattleActionID.Meteor)
+        //         attackModifier = BattleActionParams.MeteorMod;
+        //     else if (id == BattleActionID.PoisonStrike)
+        //         attackModifier = BattleActionParams.PoisonStrikeMod;
+        //     else if (id == BattleActionID.QuickHit)
+        //         attackModifier = BattleActionParams.QucikHitDamageMod;
+        //     else if (id == BattleActionID.SilenceStrike)
+        //         attackModifier = BattleActionParams.SilenceStrikeDamageMod;
+        //     else if (id == BattleActionID.StunStrike)
+        //         attackModifier = BattleActionParams.StunStrikeDamageMod;
+        //     else
+        //         Console.WriteLine("Attack ID not found in CalculateDamage(), damage modifier is set to 0.");
 
-            if (damageAmount < 0)
-                damageAmount = 0;
+        //     float baseDamageAmount = (float)attack * attackModifier;
+        //     float reductionAmount = 1f - (float)defense / 1000f;
+        //     int damageAmount = (int)(baseDamageAmount * reductionAmount);
 
-            return damageAmount;
-        }
+        //     if (damageAmount < 0)
+        //         damageAmount = 0;
 
-        static private class BattleActionParams
+        //     return damageAmount;
+        // }
+
+        // static public int CalculateHeal(int id, PartyCharacter healer)
+        // {
+        //     int wisdom = healer.wisdom;
+        //     float modifier = 0;
+        //     bool isItem = false;
+
+
+        //     if (id == BattleActionID.CureLight)
+        //         modifier = BattleActionParams.CureLightMod;
+        //     else if (id == BattleActionID.CureSerious)
+        //         modifier = BattleActionParams.CureSeriousMod;
+        //     else if (id == BattleActionID.MassHeal)
+        //         modifier = BattleActionParams.MassHealMod;
+        //     else if (id == BattleActionID.Resurrection)
+        //         modifier = BattleActionParams.ResurrectionMod;
+
+        //     else if (id == BattleActionID.Potion)
+        //     {
+        //         modifier = BattleActionParams.PotionHealAmount;
+        //         isItem = true;
+        //     }
+        //     else if (id == BattleActionID.Elixer)
+        //     {
+        //         modifier = BattleActionParams.ElixerHealAmount;
+        //         isItem = true;
+        //     }
+        //     else if (id == BattleActionID.MegaElixer)
+        //     {
+        //         modifier = BattleActionParams.MegaElixerHealAmount;
+        //         isItem = true;
+        //     }
+        //     else if (id == BattleActionID.Revive)
+        //     {
+        //         modifier = BattleActionParams.PotionHealAmount;
+        //         isItem = true;
+        //     }
+        //     else
+        //         Console.WriteLine("Attack ID not found in CalculateHeal(), heal modifier is set to 0.");
+
+        //     int amount;
+
+        //     if (!isItem)
+        //         amount = (int)(((float)wisdom) * modifier);
+        //     else
+        //         amount = (int)modifier;
+
+        //     if (amount < 0)
+        //         amount = 0;
+
+        //     return amount;
+        // }
+
+        // static public int CalculateManaRestore(int id, PartyCharacter healer)
+        // {
+
+        //     int wisdom = healer.wisdom;
+        //     float modifier = 0;
+        //     bool isItem = false;
+
+
+        //     if (id == BattleActionID.Chakra)
+        //         modifier = BattleActionParams.ChakraMod;
+        //     else if (id == BattleActionID.Ether)
+        //     {
+        //         modifier = BattleActionParams.EtherMPHealAmount;
+        //         isItem = true;
+        //     }
+        //     else if (id == BattleActionID.Elixer)
+        //     {
+        //         modifier = BattleActionParams.ElixerMPHealAmount;
+        //         isItem = true;
+        //     }
+        //     else if (id == BattleActionID.MegaElixer)
+        //     {
+        //         modifier = BattleActionParams.MegaElixerMPHealAmount;
+        //         isItem = true;
+        //     }
+        //     else
+        //         Console.WriteLine("Action ID not found in CalculateManaRestore(), mana restore modifier is set to 0.");
+
+        //     int amount;
+
+        //     if (!isItem)
+        //         amount = (int)(((float)wisdom) * modifier);
+        //     else
+        //         amount = (int)modifier;
+
+        //     if (amount < 0)
+        //         amount = 0;
+
+        //     return amount;
+        // }
+
+        // static public int CalculateManaDamage(int id, PartyCharacter attacker, PartyCharacter target)
+        // {
+        //     int attack = 0;
+        //     float attackModifier = 0;
+        //     int defense = 0;
+        //     bool isPhysical = false;
+
+        //     if (id == BattleActionID.Attack || id == BattleActionID.FlurryOfBlows || id == BattleActionID.PoisonStrike || id == BattleActionID.QuickHit || id == BattleActionID.SilenceStrike || id == BattleActionID.StunStrike)
+        //         isPhysical = true;
+
+        //     if (isPhysical)
+        //     {
+        //         attack = attacker.strength;
+        //         defense = target.defense;
+        //     }
+        //     else
+        //     {
+        //         attack = attacker.wisdom;
+        //         defense = target.magicDefense;
+        //     }
+
+        //     if (id == BattleActionID.ManaBurn)
+        //         attackModifier = BattleActionParams.ManaBurnMpDamageMod;
+        //     else
+        //         Console.WriteLine("Attack ID not found in CalculateManaDamage(), mana damage modifier is set to 0.");
+
+        //     float baseDamageAmount = (float)attack * attackModifier;
+        //     float reductionAmount = 1f - (float)defense / 1000f;
+        //     int damageAmount = (int)(baseDamageAmount * reductionAmount);
+
+        //     if (damageAmount < 0)
+        //         damageAmount = 0;
+
+        //     return damageAmount;
+        // }
+
+
+        static public class BattleActionParams
         {
 
             public const float AttackMod = 10f;
@@ -1183,10 +1283,12 @@ namespace Final_Gambit_Player_Code
             public const float MeteorMod = 12f;
 
 
-            public const float CureLightMod = 12.5f;
-            public const float CureSeriousMod = 17.5f;
-            public const float MassHealMod = 7.5f;
-            public const float ResurrectionMod = 15f;
+            public const float CureLightMod = 15f;
+            public const float CureSeriousMod = 22.5f;
+            public const float MassHealMod = 9f;
+            public const float ResurrectionMod = 20f;
+            public const float QuickHealMod = 15f;
+            public const float QuickHealATBReplenishAmount = 0.3f;
 
 
             public const float PoisonStrikeMod = 8f;
@@ -1195,22 +1297,22 @@ namespace Final_Gambit_Player_Code
             public const float ManaBurnStrikeMpDamageMod = 2f;
 
 
-            public const float FlurryOfBlowsMod = 8f;
+            public const float FlurryOfBlowsMod = 6f;
 
             public const float ChakraMod = 2f;
-            public const int ChakraMaxMPReduction = -3;
+            public const int ChakraMaxMPReduction = -10;
 
 
 
-            public const int PotionHealAmount = 600;
-            public const int EtherMPHealAmount = 200;
-            public const int ElixerHealAmount = 800;
-            public const int ElixerMPHealAmount = 200;
-            public const int MegaElixerHealAmount = 800;
-            public const int MegaElixerMPHealAmount = 200;
+            public const int PotionHealAmount = 9999;
+            public const int EtherMPHealAmount = 9999;
+            public const int ElixerHealAmount = 9999;
+            public const int ElixerMPHealAmount = 9999;
+            public const int MegaElixerHealAmount = 9999;
+            public const int MegaElixerMPHealAmount = 9999;
             //public const int MegaElixer = 205;
             //public const int PhoenixDown = 206;
-            public const int ReviveHealAmount = 500;
+            public const int ReviveHealAmount = 9999;
 
 
 
@@ -1243,11 +1345,99 @@ namespace Final_Gambit_Player_Code
 
             public const float ItemCraftingATBReplenishAmount = 0.5f;
 
+            public const float EsunaATBReplenishAmount = 0.5f;
+
+            public const float DispelATBReplenishAmount = 0.5f;
+
+            public const float SilenceRemedyATBReplenish = 0.5f;
+            public const float PoisonRemedyATBReplenish = 0.5f;
 
         }
 
 
+        static public class StatusEffectsParams
+        {
+            public const int HasteDuration = 4;
+            public const int SlowDuration = 4;
 
+            public const float HasteSpeedMod = 1.5f;
+            public const float SlowSpeedMod = 0.5f;
+
+            public const int PoisonDuration = 4;
+            public const int PoisonTickDamage = -140;
+
+
+
+            public const int RegenDuration = 7;
+            public const int RegenTickHeal = 80;
+
+            public const int BraveDuration = 4;
+            public const int DebraveDuration = 4;
+            public const int FaithDuration = 4;
+            public const int DefaithDuration = 4;
+
+            public const int PetrificationTime = 3;
+            public const int DoomTime = 3;
+
+            public const float FaithPercentMod = 0.5f;
+            public const float DefaithPercentMod = -0.5f;
+            public const float BravePercentMod = 0.5f;
+            public const float DebravePercentMod = -0.5f;
+
+            public const int SilenceStrikeDuraction = 1;
+            public const int AutoLifeDuration = 25;
+
+            //public const int SilenceDuration = 5;
+
+            // public const int ProtectDuration = 10;
+            // //public const float ProtectDefMod = 0.5f;
+
+            // public const int DeprotectDuration = 5;
+            // //public const float DeprotectDefMod = -0.5f;
+
+            // public const int ShellDuration = 10;
+            // //public const float ShellMagDefMod = 0.5f;
+
+            // public const int DeshellDuration = 5;
+            // //public const float DeshellMagDefMod = -0.5f;
+
+
+            //public const float BraveAttackMod = 0.25f;
+            //public const float BraveDefMod = 0.25f;
+
+
+            //public const float DebraveAttackMod = -0.25f;
+            //public const float DebraveDefMod = -0.25f;
+
+
+            //public const float FaithMagMod = 0.25f;
+            //public const float FaithMagDefMod = 0.25f;
+
+
+            //public const float DefaithMagAttackMod = -0.25f;
+            //public const float DefaithMagDefMod = -0.25f;
+
+            // public const int MiniDuration = 7;
+            // public const float MiniDefMod = -0.25f;
+            // public const float MiniAttackMod = -0.25f;
+
+
+
+
+
+            //public const int BeserkDuration = 7;
+            // public const int BubbleDuration = 7;
+
+
+            // public const float ShellPercentMod = -0.5f;
+            // public const float DeshellPercentMod = 0.5f;
+            // public const float ProtectPercentMod = -0.5f;
+            // public const float DeProtectPercentMod = 0.5f;
+
+
+
+
+        }
 
     }
 
