@@ -37,6 +37,7 @@ namespace Final_Gambit_Player_Code
             FinalGambit.ItemCost.Init();
             FinalGambit.BattleActionMPCost.Init();
             FinalGambit.CraftMaterialCost.Init();
+            FinalGambit.PerkID.Init();
             FinalGambit.recordOfBattleActions = new LinkedList<RecordOfBattleAction>();
 
 
@@ -820,6 +821,71 @@ namespace Final_Gambit_Player_Code
             }
 
         }
+
+
+        static public class PerkID
+        {
+            public const int FighterGuardian = 1001;
+            public const int FighterPaladin = 1002;
+            public const int FighterSamurai = 1003;
+
+            public const int WizardEvoker = 1101;
+            public const int WizardAbjurer = 1102;
+            public const int WizardMastery = 1103;
+
+            public const int ClericHealer = 1201;
+            public const int ClericEnchanter = 1202;
+            public const int ClericMastery = 1203;
+
+            public const int MonkDisciple = 1301;
+            public const int MonkNinja = 1302;
+            public const int MonkBoundlessFist = 1303;
+
+
+            public const int RogueAssassin = 1401;
+            public const int RogueSwashbuckler = 1402;
+            public const int RogueBandit = 1403;
+
+
+            public const int AlchemistChemist = 1501;
+            public const int AlchemistArcanist = 1502;
+            public const int AlchemistAetherist = 1503;
+
+            static public Dictionary<int, string> lookUp;
+
+            static public void Init()
+            {
+                lookUp = new Dictionary<int, string>();
+
+                lookUp.Add(PerkID.FighterGuardian, "Guardian");
+                lookUp.Add(PerkID.FighterPaladin, "Paladin");
+                lookUp.Add(PerkID.FighterSamurai, "Samurai");
+
+                lookUp.Add(PerkID.WizardEvoker, "Evoker");
+                lookUp.Add(PerkID.WizardAbjurer, "Abjurer");
+                lookUp.Add(PerkID.WizardMastery, "Mastery");
+
+                lookUp.Add(PerkID.ClericHealer, "Healer");
+                lookUp.Add(PerkID.ClericEnchanter, "Enchanter");
+                lookUp.Add(PerkID.ClericMastery, "Mastery");
+
+                lookUp.Add(PerkID.MonkDisciple, "Disciple");
+                lookUp.Add(PerkID.MonkNinja, "Ninja");
+                lookUp.Add(PerkID.MonkBoundlessFist, "Boundless Fist");
+
+                lookUp.Add(PerkID.RogueAssassin, "Assassin");
+                lookUp.Add(PerkID.RogueSwashbuckler, "Swashbuckler");
+                lookUp.Add(PerkID.RogueBandit, "Bandit");
+
+                lookUp.Add(PerkID.AlchemistChemist, "Chemist");
+                lookUp.Add(PerkID.AlchemistArcanist, "Arcanist");
+                lookUp.Add(PerkID.AlchemistAetherist, "Aetherist");
+
+            }
+
+        }
+
+
 
         static public class PassiveAbilityID
         {
